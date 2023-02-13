@@ -1,0 +1,52 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:                                        |
+|   \\  /    A nd           | Web:      www.openfoam.com; www.openfoam.org    |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    object      U;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+U1 (0.5 0 0);//JN: inlet1 velocity
+//U2 (1 0 0);//JN: inlet2 velocity
+//U3 (1 0 0);//JN: inlet3 velocity
+//U4 (1 0 0);//JN: inlet4 velocity
+//U5 (1 0 0);//JN: inlet5 velocity
+
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField   uniform (0 0 0);
+
+boundaryField
+{
+    inlet1
+    {
+        type            fixedValue;
+        value           uniform $U1;
+    }
+    "(outlet.*)"
+    {
+//    This velocity inlet/outlet boundary condition is applied to pressure
+//    boundaries where the pressure is specified.  A zero-gradient condition is
+//    applied for outflow (as defined by the flux); for inflow, the velocity is
+//    obtained from the patch-face normal component of the internal-cell value.
+//    The tangential patch velocity can be optionally specified.
+        type            pressureInletOutletVelocity;
+        value           uniform (0 0 0);
+    }
+    "(wall.*)"
+    {
+        type            noSlip;
+    }
+	
+}
+
+
+// ************************************************************************* //
