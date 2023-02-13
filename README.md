@@ -8,6 +8,14 @@ The geometry I used for the Venturi flow meter comes from [this papar](https://w
 
 Note: The throat pressure tappings are larger than prescribed in the [ISO 5167-4:2003](https://azaransanjesh.com/wp-content/uploads/2021/07/ISO_5167_4_2003-Venturi-tubes.pdf) standard. Despite this, the results are fairly accurate, but the geometry should be changed in order to make the simulations more akin to real-world use.
 
+Using the Bernulli equation, the continuity equation, and the hydrostatic pressure equation, it is trivial to arrive at the following equation for the mercury level height diference h:
+
+<p align="center">
+$h = \frac{15\rho U_1^2}{2g(\rho_{Hg}-\rho)}$
+</p>
+
+The expected value of h is 1.5 cm.
+
 ## Geometry and Mesh
 
 I made the geometry and a drawing with SolidWorks (the files are available in the geometry folder), then saved them in the STL format and imported it into Blender where I extracted and named the patches in order to prepare them for meshing with snappyHexMesh.
@@ -26,3 +34,10 @@ For the turbulence model I used the K Omega SST model and initialized the their 
 
 ## Results and postprocessing
 
+After reaching a steady level, the observed height difference is around 1.46 cm. 
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/84512701/218527376-60f0c4d5-88b7-43f4-ac81-c16d4c9c2b11.png")>
+</p>
+
+This is very close to the expected value, but still, simulations with different parameters should be added in the future for more validation.
