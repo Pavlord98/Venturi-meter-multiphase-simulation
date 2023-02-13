@@ -1,6 +1,6 @@
 # Venturi-meter-multiphase-simulation
 
-In this simulation I applied the simplest multiphase solver available in OpenFOAM to simulate a flow through a classical Venturi meter. In this project I created my on CAD geometry of a standardized venturi meter and compared the simulation results with calculations based on the well known equations regarding the Venturi meter.
+In this simulation I applied the simplest multiphase solver available in OpenFOAM to simulate a flow through a classical Venturi meter with mercury as the manometer fluid. In this project I created my on CAD geometry of a standardized venturi meter and compared the simulation results with calculations based on the well known equations regarding the Venturi meter.
 
 ## Pre-analysis
 
